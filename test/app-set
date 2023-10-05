@@ -21,7 +21,7 @@ spec:
       source:
         repoURL: https://github.com/Pavan-Gunda/appset-demo.git
         targetRevision: main
-        path: /test
+        path: test
       destination:
         server: https://kubernetes.default.svc
         namespace: production
