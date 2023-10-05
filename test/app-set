@@ -20,7 +20,7 @@ spec:
           selfHeal: true
       source:
         repoURL: https://github.com/Pavan-Gunda/appset-demo.git
-        targetRevision: master
+        targetRevision: main
         path: /test
       destination:
         server: https://kubernetes.default.svc
