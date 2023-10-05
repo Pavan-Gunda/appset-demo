@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: test
+  name: test-32
   namespace: argocd-system
 spec:
   generators:
   - list:
       elements:
-      - appname: sample
-      - appname: test
+      - appname: sample-4323
+      - appname: test-32
   template:
     metadata:
-      name: 'bgd'
+      name: 'bgd-tad-32'
     spec:
       project: default
       syncPolicy:
