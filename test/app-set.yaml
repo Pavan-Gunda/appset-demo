@@ -10,7 +10,7 @@ spec:
       - appname: test
   template:
     metadata:
-      name: 'demo-{{appname}}'
+      name: 'demo-{{appname}}-{{number}}'
       namespace: argocd-system
       finalizers:
       - resources-finalizer.argocd.argoproj.io

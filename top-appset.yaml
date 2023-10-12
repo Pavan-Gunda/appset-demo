@@ -7,11 +7,11 @@ spec:
   generators:
   - list:
       elements:
-      - appname: sample
-      - appname: test
+      - appname: sample-32
+      - appname: test-32
   template:
     metadata:
-      name: 'bgd'
+      name: 'lr-{{appname}}'
     spec:
       project: default
       syncPolicy:
