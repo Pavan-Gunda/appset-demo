@@ -1,27 +1,32 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: test-32
-  namespace: argocd-system
+  name: demo-appset
 spec:
   generators:
   - list:
       elements:
-      - appname: sample-4323
-      - appname: test-32
+      - appname: sample
+      - appname: test
   template:
     metadata:
-      name: 'bgd-tad-32'
+      name: 'demo-{{appname}}'
+      namespace: argocd-system
+      finalizers:
+      - resources-finalizer.argocd.argoproj.io
     spec:
-      project: default
+      source:
+        repoURL: https://github.com/Pavan-Gunda/hello-ck8s
+        targetRevision: main
+        path: deploy/helm/hello-ck8s
+        helm:
+          valueFiles:
+          - values.yaml
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
-      source:
-        repoURL: https://github.com/Pavan-Gunda/appset-demo.git
-        targetRevision: main
-        path: test
+      project: default
       destination:
         server: https://kubernetes.default.svc
-        namespace: production
+        namespace: staging
